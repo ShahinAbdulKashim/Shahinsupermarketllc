@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products | Shahin Supermarket</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Shahin Supermarket</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html" class="active">Products</a>
+    </nav>
+  </header>
+
+  <main class="product-section">
+    <h2>Our Products</h2>
+
+    <!-- Category Filter Buttons -->
+    <div class="category-buttons">
+      <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+      <button class="filter-btn" onclick="filterProducts('fruits')">Fruits</button>
+      <button class="filter-btn" onclick="filterProducts('spices')">Spices</button>
+      <button class="filter-btn" onclick="filterProducts('snacks')">Snacks</button>
+    </div>
+
+    <!-- Product Cards -->
+    <div class="product-grid">
+      <div class="product-card fruits">
+        <img src="https://via.placeholder.com/150" alt="Bananas">
+        <h3>Fresh Bananas</h3>
+        <p>₹50 / dozen</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card spices">
+        <img src="https://via.placeholder.com/150" alt="Turmeric">
+        <h3>Turmeric Powder</h3>
+        <p>₹75 / 100g</p>
+        <button>Add to Cart</button>
+      </div>
+
+      <div class="product-card snacks">
+        <img src="https://via.placeholder.com/150" alt="Chips">
+        <h3>Banana Chips</h3>
+        <p>₹60 / pack</p>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Shahin Supermarket LLC</p>
+  </footer>
+
+  <!-- Filter Script -->
+  <script>
+    function filterProducts(category) {
+      const cards = document.querySelectorAll('.product-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      cards.forEach(card => {
+        if (category === 'all' || card.classList.contains(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
